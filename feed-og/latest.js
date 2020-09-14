@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=">
-  <title></title>
-</head>
-<body>
-  <script>
+
   const RSS_URL = `https://help.gulshankumar.net/latest.rss`;
 
 fetch(RSS_URL)
@@ -26,7 +18,3 @@ fetch(RSS_URL)
     });
     document.body.insertAdjacentHTML("beforeend", html);
   });
-
-  </script>
-</body>
-</html>
