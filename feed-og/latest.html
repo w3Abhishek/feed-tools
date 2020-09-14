@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=">
+  <title></title>
+</head>
+<body>
+  <script>
+  const RSS_URL = `https://help.gulshankumar.net/latest.rss`;
+
+fetch(RSS_URL)
+  .then(response => response.text())
+  .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
+  .then(data => {
+    console.log(data);
+    const items = data.querySelectorAll("item");
+    let html = ``;
+    items.forEach(el => {
+      html += `
+        <article>
+          <img src="https://discourse-og-image-serverless.vercel.app/api?url=${el.querySelector("link").innerHTML}/image/large.png" alt="">
+          
+        </article>
+      `;
+    });
+    document.body.insertAdjacentHTML("beforeend", html);
+  });
+
+  </script>
+</body>
+</html>
